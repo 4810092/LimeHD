@@ -10,7 +10,7 @@
     android:backgroundTint="@color/black343438"
     android:paddingVertical="8dp"
     android:paddingStart="8dp"
-    android:paddingEnd="12dp">
+    android:paddingEnd="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/icon"
@@ -29,8 +29,9 @@
         style="@style/ChannelTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
         android:ellipsize="end"
         android:lines="1"
         app:layout_constraintEnd_toStartOf="@id/favorite"
@@ -43,7 +44,8 @@
         style="@style/ChannelSubTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginBottom="6dp"
         android:ellipsize="end"
         android:lines="1"
@@ -54,9 +56,10 @@
 
     <ImageView
         android:id="@+id/favorite"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/content_description_favorite_icon"
+        android:padding="12dp"
         android:src="@drawable/ic_star"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

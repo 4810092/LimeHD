@@ -11,9 +11,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/black232427</item>
         <!-- Customize your theme here. -->
 
         <item name="android:windowBackground">@color/black232427</item>
+        <item name="snackbarStyle">@style/MaterialSnackbarTheme</item>
     </style>
 
     <style name="Theme.LimeHD.NoActionBar">
@@ -21,7 +23,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
+    <style name="MaterialSnackbarTheme" parent="@style/Widget.MaterialComponents.Snackbar">
+        <item name="android:background">@color/blue0077FF</item>
+        <item name="actionTextColorAlpha">1.0</item>
+    </style>
 
     <style name="RoundedImageView">
         <item name="cornerFamily">rounded</item>

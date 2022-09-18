@@ -24,6 +24,7 @@ fun InterceptTouchEventViewGroup.syncTouchesWith(views: List<View>) {
         override fun onInterceptTouchEvent(ev: MotionEvent?) {
             if (ev?.action == MotionEvent.ACTION_MOVE || ev?.action == MotionEvent.ACTION_UP || ev?.action == MotionEvent.ACTION_CANCEL) {
                 self.hideKeyboard()
+                self.clearFocus()
             }
         }
     }
