@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gka.android.limehd.ui.utils.InterceptTouchEventLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black343438"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/fieldSearch"
+            style="@style/SearchField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/rect_rad_16"
+            android:backgroundTint="@color/grey404247"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:hint="@string/field_search_hint"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="12dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            style="@style/ChannelTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:paddingBottom="6dp"
+            app:tabGravity="start"
+            app:tabMode="scrollable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/grey4A4C50" />
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</gka.android.limehd.ui.utils.InterceptTouchEventLinearLayout>

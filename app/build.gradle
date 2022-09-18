@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "gka.android.limehd"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+
+ext {
+    selfVersionName = '1.0.0'
+    selfVersionCode = 6
+
+    // Kotlin
+    coreKtxVersion = '1.8.0'
+    kotlinVersion = '1.6.21'
+
+    // Networking
+    retrofitVersion = '2.9.0'
+    okhttpVersion = '4.7.2'
+    gsonConverterVersion = '2.9.0'
+    gsonVersion = '2.8.9'
+
+    // Coroutine
+    kotlinCoroutinesVersion = '1.6.0-RC3'
+    androidCoroutinesVersion = '1.6.0-RC3'
+    androidCoroutinesKtxVersion = '2.4.0'
+
+    // Dagger
+    daggerVersion = '2.42'
+
+    // Image loading
+    picassoVersion = '2.8'
+
+    // DB
+    roomVersion = '2.4.3'
+
+    //ViewBinding
+    viewBindingDelegate = '1.5.6'
+
+}
+dependencies {
+//android
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+
+//core
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+
+//dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+//coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$androidCoroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidCoroutinesKtxVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidCoroutinesKtxVersion"
+
+//db
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+//network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+//utils
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:$viewBindingDelegate"
+
+//Image loading
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+}

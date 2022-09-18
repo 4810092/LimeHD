@@ -1,0 +1,37 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.LimeHD" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black343438</item>
+        <item name="colorPrimaryVariant">@color/black343438</item>
+        <item name="colorOnPrimary">@color/grey919CA8</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue0077FF</item>
+        <item name="colorSecondaryVariant">@color/grey919CA8</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowBackground">@color/black232427</item>
+    </style>
+
+    <style name="Theme.LimeHD.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="ChannelTabs" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/blue0077FF</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/whiteOp50</item>
+        <item name="tabTextAppearance">@style/TabName</item>
+    </style>
+</resources>

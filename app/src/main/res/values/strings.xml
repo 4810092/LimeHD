@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LimeHD</string>
+
+    <string name="field_search_hint">Напишите название телеканала</string>
+    <string name="content_description_favorite_icon">кнопка добавить или удалить из избранных</string>
+
+    <string name="hint_no_channel">Список каналов пуст</string>
+    <string name="hint_no_favorite">Пока нет избранных</string>
+
+    <string name="btn_try_again">Попробовать снова</string>
+
+    <string-array name="tab_titles">
+        <item>Все</item>
+        <item>Избранные</item>
+    </string-array>
+</resources>
