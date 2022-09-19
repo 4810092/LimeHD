@@ -2,6 +2,7 @@ package gka.android.limehd.ui.channels
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -14,13 +15,20 @@ import gka.android.limehd.databinding.FragmentChannelsBinding
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ChannelsFragment(private var onlyFavorites: Boolean) :
+class ChannelsFragment :
     Fragment(R.layout.fragment_channels) {
 
     private val binding: FragmentChannelsBinding by viewBinding(FragmentChannelsBinding::bind)
 
     @Inject
     lateinit var channelsAdapter: ChannelsAdapter
+
+    private val argOnlyFavorites: Boolean by lazy {
+        requireArguments().getBoolean(
+            onlyFavoritesParam,
+            false
+        )
+    }
 
     private val mainActivity: ChannelsFragmentListener by lazy {
         requireActivity() as? ChannelsFragmentListener
@@ -43,7 +51,7 @@ class ChannelsFragment(private var onlyFavorites: Boolean) :
         }
 
         with(binding) {
-            textEmpty.setText(if (onlyFavorites) R.string.hint_no_favorite else R.string.hint_no_channel)
+            textEmpty.setText(if (argOnlyFavorites) R.string.hint_no_favorite else R.string.hint_no_channel)
             recycler.adapter = channelsAdapter
         }
         observeViewModel()
@@ -53,12 +61,23 @@ class ChannelsFragment(private var onlyFavorites: Boolean) :
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    mainActivity.getChannelsFlow(onlyFavorites).collect {
+                    mainActivity.getChannelsFlow(argOnlyFavorites).collect {
                         channelsAdapter.items = it
 
                         binding.textEmpty.isVisible = it.isEmpty()
                     }
                 }
+            }
+        }
+    }
+
+    companion object {
+
+        const val onlyFavoritesParam = "onlyFavoritesParam"
+
+        fun onNewInstance(onlyFavorites: Boolean): ChannelsFragment {
+            return ChannelsFragment().apply {
+                arguments = bundleOf(onlyFavoritesParam to onlyFavorites)
             }
         }
     }

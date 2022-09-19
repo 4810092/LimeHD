@@ -8,11 +8,9 @@ import gka.android.limehd.ui.channels.ChannelsFragment
 class ChannelsPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    private var pages = listOf(ChannelsFragment(false), ChannelsFragment(true))
-
-    override fun getItemCount(): Int = pages.size
+    override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
-        return pages[position]
+        return ChannelsFragment.onNewInstance(position == 1)
     }
 }
