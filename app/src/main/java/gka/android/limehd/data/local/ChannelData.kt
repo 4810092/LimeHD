@@ -62,6 +62,4 @@ data class ChannelDataWithCurrentData(
         entityColumn = ChannelCurrentData.COLUMN_NAME_CHANNEL_ID
     )
     val channelCurrentData: ChannelCurrentData?
-
-
 )

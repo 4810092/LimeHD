@@ -1,6 +1,7 @@
 package gka.android.limehd.ui.main
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -12,19 +13,20 @@ import gka.android.limehd.data.remote.Resource
 import gka.android.limehd.databinding.ActivityMainBinding
 import gka.android.limehd.ui.channels.ChannelsFragmentListener
 import gka.android.limehd.ui.utils.syncTouchesWith
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), ChannelsFragmentListener {
 
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 
-    @Inject
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels {
+        appComponent.viewModelsFactory()
+    }
 
     private var channelsPagerAdapter = ChannelsPagerAdapter(fragmentActivity = this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         appComponent.inject(this)
 
         with(binding) {
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), ChannelsFragment
         }
         observeViewModel()
     }
+
 
     private fun observeViewModel() {
         with(viewModel) {

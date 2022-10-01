@@ -2,14 +2,9 @@ package gka.android.limehd.data.remote
 
 import retrofit2.Response
 
-sealed class Resource<T>(
-    val data: T? = null,
-    val errorCode: Int? = null,
-    val errorMessage: String? = null
-) {
-    class Success<T>(data: T?) : Resource<T>(data = data)
-    class Error<T>(errorCode: Int, errorMessage: String?) :
-        Resource<T>(errorCode = errorCode, errorMessage = errorMessage)
+sealed class Resource<T> {
+    class Success<T>(val data: T?) : Resource<T>()
+    class Error<T>(val errorCode: Int, val errorMessage: String?) : Resource<T>()
 }
 
 

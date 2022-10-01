@@ -12,7 +12,7 @@ class LimeHdApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder().context(this).build()
+        appComponent = DaggerAppComponent.factory().create(this)
     }
 }
 

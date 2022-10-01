@@ -17,7 +17,7 @@ data class ChannelCurrentData(
     @ColumnInfo(name = COLUMN_NAME_CHANNEL_ID) var channelId: Int?,
     @ColumnInfo(name = COLUMN_NAME_ID)
     @PrimaryKey(autoGenerate = true)
-    var id: Int=0
+    var id: Int = 0
 ) {
 
     companion object {
@@ -31,6 +31,4 @@ data class ChannelCurrentData(
         const val COLUMN_NAME_CDN_VIDEO = "cdnVideo"
         const val COLUMN_NAME_RATING = "rating"
     }
-
-
 }
